@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWWMEU Brussels 2027 — ევროპის მომავლის მოდელირება | რეგისტრაცია</title>
+    
+    <!-- Google Fonts: Noto Sans Georgian & Inter for crisp bilingual diplomatic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for crisp diplomatic & UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', '"Inter"', 'sans-serif'],
+                        display: ['"Noto Sans Georgian"', '"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        eu: {
+                            navy: '#001F5B',
+                            blue: '#003399',
+                            royal: '#0A47C2',
+                            light: '#EBF2FF',
+                            gold: '#FFCC00',
+                            goldHover: '#E6B800',
+                            goldLight: '#FFF9DB'
+                        }
+                    },
+                    boxShadow: {
+                        'diplomatic': '0 20px 40px -15px rgba(0, 51, 153, 0.14)',
+                        'card': '0 10px 30px -5px rgba(0, 31, 91, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom subtle EU stars background pattern & glassmorphism utilities */
+        body {
+            font-family: 'Noto Sans Georgian', 'Inter', sans-serif;
+            color: #0F172A;
+            background-color: #F8FAFC;
+        }
+        
+        .eu-hero-gradient {
+            background: radial-gradient(circle at 85% 15%, rgba(255, 204, 0, 0.14) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(10, 71, 194, 0.45) 0%, transparent 50%),
+                        linear-gradient(135deg, #00143D 0%, #00297A 50%, #003399 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        /* Custom scrollbar for sleek feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94A3B8;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #003399;
+        }
+
+        /* Smooth accordion transition */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.25s ease-out;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-eu-gold selection:text-eu-navy">
+
+    <!-- ==================== 1. STICKY NAVIGATION BAR ==================== -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-11 h-11 rounded-xl bg-eu-blue flex items-center justify-center shadow-md group-hover:bg-eu-navy transition-colors">
+                        <!-- EU Circle of Stars SVG -->
+                        <svg class="w-8 h-8 text-eu-gold" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="50" cy="14" r="4.2"/>
+                            <circle cx="68" cy="18.8" r="4.2"/>
+                            <circle cx="81.2" cy="32" r="4.2"/>
+                            <circle cx="86" cy="50" r="4.2"/>
+                            <circle cx="81.2" cy="68" r="4.2"/>
+                            <circle cx="68" cy="81.2" r="4.2"/>
+                            <circle cx="50" cy="86" r="4.2"/>
+                            <circle cx="32" cy="81.2" r="4.2"/>
+                            <circle cx="18.8" cy="68" r="4.2"/>
+                            <circle cx="14" cy="50" r="4.2"/>
+                            <circle cx="18.8" cy="32" r="4.2"/>
+                            <circle cx="32" cy="18.8" r="4.2"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-lg sm:text-xl tracking-tight text-eu-navy leading-none">
+                            FWWMEU <span class="text-eu-blue">Brussels</span>
+                        </span>
+                        <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                            Model European Union • 2027
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+                    <a href="#about" class="hover:text-eu-blue transition-colors py-2">კონფერენციის შესახებ</a>
+                    <a href="#roles" class="hover:text-eu-blue transition-colors py-2">როლები და კრიტერიუმები</a>
+                    <a href="#schedule" class="hover:text-eu-blue transition-colors py-2">განრიგი</a>
+                    <a href="#training" class="hover:text-eu-blue transition-colors py-2">სერტიფიცირებული ტრენინგი</a>
+                    <a href="#faq" class="hover:text-eu-blue transition-colors py-2">კითხვები</a>
+                </nav>
+
+                <!-- CTA & Mobile Menu Toggle -->
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        18–20 მარტი, 2027
+                    </span>
+                    <a href="#register" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-eu-blue hover:bg-eu-navy text-white font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <span>რეგისტრაცია</span>
+                        <i class="fa-solid fa-arrow-right text-xs text-eu-gold"></i>
+                    </a>
+                    <button id="mobileMenuBtn" aria-label="მენიუს გახსნა" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-5 space-y-2 shadow-xl">
+            <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-eu-light hover:text-eu-blue">კონფერენციის შესახებ</a>
+            <a href="#roles" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-eu-light hover:text-eu-blue">როლები და კრიტერიუმები</a>
+            <a href="#schedule" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-eu-light hover:text-eu-blue">განრიგი (18–20 მარტი)</a>
+            <a href="#training" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-eu-light hover:text-eu-blue">სერტიფიცირებული ტრენინგი</a>
+            <a href="#faq" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-eu-light hover:text-eu-blue">ხშირად დასმული კითხვები</a>
+            <div class="pt-2">
+                <a href="#register" class="mobile-nav-link w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-eu-gold text-eu-navy font-extrabold text-sm shadow">
+                    <span>დარეგისტრირდი ახლავე</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section class="eu-hero-gradient relative overflow-hidden text-white pt-14 pb-20 lg:pt-20 lg:pb-28">
+        <!-- Decorative SVG EU Emblem Watermark -->
+        <div class="pointer-events-none absolute -right-24 -top-24 opacity-10">
+            <svg class="w-[520px] h-[520px] text-eu-gold" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="14" r="3.5"/><circle cx="68" cy="18.8" r="3.5"/><circle cx="81.2" cy="32" r="3.5"/>
+                <circle cx="86" cy="50" r="3.5"/><circle cx="81.2" cy="68" r="3.5"/><circle cx="68" cy="81.2" r="3.5"/>
+                <circle cx="50" cy="86" r="3.5"/><circle cx="32" cy="81.2" r="3.5"/><circle cx="18.8" cy="68" r="3.5"/>
+                <circle cx="14" cy="50" r="3.5"/><circle cx="18.8" cy="32" r="3.5"/><circle cx="32" cy="18.8" r="3.5"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Main Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Date & Location Pill Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-eu-gold/40 backdrop-blur-md text-eu-gold text-xs sm:text-sm font-bold tracking-wide shadow-sm">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>18 - 20 მარტი, 2027 • ბრიუსელი, ბელგია</span>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.18] tracking-tight text-white">
+                        FWWMEU Brussels — <span class="text-eu-gold">ევროპის მომავლის</span> მოდელირება
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p class="text-base sm:text-lg text-blue-100/95 leading-relaxed max-w-2xl font-normal">
+                        მსოფლიოს უმსხვილესი ახალგაზრდული დიპლომატიური ინიციატივა ევროკავშირისა და ნატოს დედაქალაქში. მიიღე რეალური გამოცდილება საერთაშორისო ურთიერთობებში, <strong>ევროპარლამენტისა (European Parliament)</strong> და <strong>ევროკავშირის საბჭოს (Council of the EU)</strong> სესიებზე.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#register" class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl bg-eu-gold hover:bg-eu-goldHover text-eu-navy font-extrabold text-base shadow-xl shadow-black/20 transition-all transform hover:-translate-y-0.5">
+                            <span>განაცხადის შევსება</span>
+                            <i class="fa-solid fa-file-signature"></i>
+                        </a>
+                        <a href="#schedule" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-base backdrop-blur-sm transition-all">
+                            <i class="fa-regular fa-calendar-check text-eu-gold"></i>
+                            <span>პროგრამის ნახვა</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust & Official Venue Note -->
+                    <div class="pt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-blue-200">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-landmark text-eu-gold"></i>
+                            Committee of the Regions (CoR) & EU Quarter
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-passport text-eu-gold"></i>
+                            ოფიციალური სავიზო მხარდაჭერის წერილი
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Diplomatic Briefing Card -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                        <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-5">
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-eu-gold font-bold">Future We Want</p>
+                                <h2 class="text-lg font-bold text-white">Model European Union 2027</h2>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold">
+                                რეგისტრაცია ღიაა
+                            </span>
+                        </div>
+
+                        <ul class="space-y-4 text-sm text-blue-50">
+                            <li class="flex items-start gap-3.5">
+                                <div class="w-8 h-8 rounded-xl bg-eu-gold/20 text-eu-gold flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-users-line"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">ინდივიდუალური და გუნდური მონაწილეობა</p>
+                                    <p class="text-xs text-blue-200 mt-0.5">მონაწილეობა შეუძლიათ როგორც ინდივიდუალურ აპლიკანტებს, ისე სკოლისა და უნივერსიტეტის დელეგაციებს (5+ წევრი).</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3.5">
+                                <div class="w-8 h-8 rounded-xl bg-eu-gold/20 text-eu-gold flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">საერთაშორისო აკრედიტაცია და კრედიტები</p>
+                                    <p class="text-xs text-blue-200 mt-0.5">ოფიციალური სერტიფიკატი და NYAD-WCYD სპეციალური დიპლომატიური ტრენინგის გავლის შესაძლებლობა.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3.5">
+                                <div class="w-8 h-8 rounded-xl bg-eu-gold/20 text-eu-gold flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">წინა გამოცდილება სავალდებულო არ არის</p>
+                                    <p class="text-xs text-blue-200 mt-0.5">სამდივნო ანაწილებს დელეგატებს გამოცდილების დონის მიხედვით (დამწყები, საშუალო, გამოცდილი).</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-6 pt-5 border-t border-white/15 flex items-center justify-between">
+                            <div class="text-xs text-blue-200">
+                                <span class="block text-white font-semibold">მოქმედებს 24-თვიანი</span>
+                                გადავადების გარანტია (Deferral Policy)
+                            </div>
+                            <a href="#register" class="px-4 py-2 rounded-xl bg-white text-eu-navy hover:bg-eu-gold font-bold text-xs transition-colors">
+                                რეგისტრაციაზე გადასვლა →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Highlights Stats Bar -->
+            <div class="mt-14 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-diplomatic border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-eu-light text-eu-blue flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-earth-europe"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-eu-navy">300+ დელეგატი</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium">მსოფლიოს სხვადასხვა ქვეყნიდან</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-diplomatic border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-eu-light text-eu-blue flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-eu-navy">13–26 წელი</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium">ასაკობრივი კატეგორია</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-diplomatic border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-eu-light text-eu-blue flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-eu-navy">3 დღიანი</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium">ინტენსიური პროგრამა</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-diplomatic border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-eu-goldLight text-amber-600 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-eu-navy">NYAD-WCYD</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium">საერთაშორისო სერტიფიკატი</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. ABOUT & WHY BRUSSELS + NYAD-WCYD TRAINING ==================== -->
+    <section id="about" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- About FWWMEU Brussels -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-eu-light text-eu-blue text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>კონფერენციის შესახებ</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-eu-navy leading-tight">
+                        რატომ FWWMEU Brussels? ევროპული დიპლომატიის ეპიცენტრი
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        <strong>Future We Want Model European Union (FWWMEU)</strong> არის პრესტიჟული საერთაშორისო ახალგაზრდული კონფერენცია, რომელიც ტარდება ბრიუსელში — ევროკავშირისა და ნატოს პოლიტიკურ ცენტრში. პროგრამა აერთიანებს მოტივირებულ სკოლის მოსწავლეებსა და სტუდენტებს, რათა მათ საკუთარ თავზე გამოსცადონ ევროპული გადაწყვეტილებების მიღების პროცესი.
+                    </p>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        სამი დღის განმავლობაში მონაწილეები წარმოადგენენ ევროკავშირის წევრ სახელმწიფოებს <strong>ევროპარლამენტის (European Parliament)</strong> და <strong>ევროკავშირის საბჭოს (Council of the EU)</strong> კომიტეტებში, მართავენ დებატებს გლობალურ გამოწვევებზე, ქმნიან კოალიციებს და შეიმუშავებენ რეზოლუციებს.
+                    </p>
+
+                    <!-- Feature Pills Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-eu-blue text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-microphone-lines"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-eu-navy text-sm">ევროპარლამენტარების ვორქშოფები</h3>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">პანელური დისკუსიები MEPs, მინისტრებისა და საერთაშორისო ექსპერტების მონაწილეობით.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-eu-blue text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-eu-navy text-sm">გლობალური ნეთვორქინგი</h3>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">კონტაქტების დამყარება 50+ ქვეყნის ახალგაზრდა ლიდერებთან და დიპლომატებთან.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlighted Card: NYAD-WCYD Certified Training -->
+                <div id="training" class="lg:col-span-5">
+                    <div class="rounded-3xl bg-gradient-to-br from-eu-navy via-eu-blue to-eu-royal text-white p-7 sm:p-8 shadow-diplomatic relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-eu-gold/15 rounded-full -mr-10 -mt-10 blur-xl"></div>
+                        
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-eu-gold text-eu-navy text-xs font-extrabold mb-4">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>სპეციალური აკადემიური პროგრამა</span>
+                        </div>
+
+                        <h3 class="text-2xl font-extrabold leading-snug mb-3">
+                            NYAD-WCYD სერტიფიცირებული ტრენინგი
+                        </h3>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-6">
+                            კონფერენციის ფარგლებში მონაწილეებს შეუძლიათ გაიარონ <strong>3-საათიანი ინტენსიური ადგილზე (On-Site) სასწავლო კურსი</strong> თემაზე: <em>„დიპლომატია, საერთაშორისო ურთიერთობები და გლობალური საქმეები“</em>.
+                        </p>
+
+                        <div class="space-y-3 bg-white/10 rounded-2xl p-4 border border-white/15 mb-6 text-sm">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-eu-gold"></i>
+                                <span>საუნივერსიტეტო კრედიტების ღირებულების სერტიფიკატი</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-eu-gold"></i>
+                                <span>პრაქტიკული მოლაპარაკებებისა და რეზოლუციის წერის ტექნიკა</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-eu-gold"></i>
+                                <span>ხელმისაწვდომია FWWMEU-ს ყველა რეგისტრირებული მონაწილისთვის</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4 pt-2 border-t border-white/15">
+                            <div>
+                                <span class="text-xs text-blue-200 block">სპეციალური ფასდაკლებული საფასური</span>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-3xl font-extrabold text-eu-gold">$49</span>
+                                    <span class="text-xs text-blue-200 line-through">$120</span>
+                                </div>
+                            </div>
+                            <button type="button" onclick="selectTrainingAndScroll()" class="px-5 py-3 rounded-xl bg-eu-gold hover:bg-eu-goldHover text-eu-navy font-extrabold text-xs sm:text-sm transition-all shadow-md cursor-pointer">
+                                ფორმაში დამატება
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. PARTICIPANT ROLES & ELIGIBILITY CARDS ==================== -->
+    <section id="roles" class="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-eu-light text-eu-blue text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fa-solid fa-id-badge"></i>
+                    <span>მონაწილეობის ფორმატები</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-eu-navy">
+                    როლები და საკვალიფიკაციო კრიტერიუმები
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    აირჩიე შენი სტატუსი ასაკისა და აკადემიური მიზნების შესაბამისად. თითოეულ კატეგორიას აქვს მკაფიოდ განსაზღვრული უფლებამოსილება.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <!-- Card 1: Delegate -->
+                <div class="bg-white rounded-3xl p-7 shadow-card border-2 border-eu-blue/20 hover:border-eu-blue transition-all flex flex-col justify-between relative group">
+                    <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-eu-blue text-white text-xs font-bold shadow">
+                        ყველაზე მოთხოვნადი
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-eu-light text-eu-blue flex items-center justify-center text-2xl mb-5 group-hover:bg-eu-blue group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-eu-navy">დელეგატი (Delegate)</h3>
+                        <div class="inline-block mt-2 px-3 py-1 rounded-lg bg-blue-50 text-eu-blue text-xs font-bold">
+                            ასაკი: 13–26 წელი
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2 font-medium">
+                            • სკოლის მოსწავლეები (High School): 13–19 წელი<br>
+                            • სტუდენტები (University): 17–26 წელი
+                        </p>
+                        <hr class="my-5 border-slate-100">
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>წარმოადგენს მინიჭებულ ქვეყანას <strong>European Parliament</strong> ან <strong>Council of the EU</strong> კომიტეტებში.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>მონაწილეობს დებატებში, კენჭისყრასა და რეზოლუციების შემუშავებაში.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span><strong>წინა MEU გამოცდილება არ მოითხოვება</strong> — გადანაწილება ხდება დონის მიხედვით.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-slate-100">
+                        <button type="button" onclick="selectRoleAndScroll('delegate')" class="w-full py-3 px-4 rounded-xl bg-eu-blue hover:bg-eu-navy text-white font-bold text-sm transition-colors cursor-pointer">
+                            რეგისტრაცია დელეგატად
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Observer -->
+                <div class="bg-white rounded-3xl p-7 shadow-card border border-slate-200 hover:border-eu-blue/50 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-5 group-hover:bg-eu-navy group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-eu-navy">დამკვირვებელი (Observer)</h3>
+                        <div class="inline-block mt-2 px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold">
+                            ასაკი: 13–28 წელი
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2 font-medium">
+                            იდეალურია პირველადი გაცნობისა და აკადემიური დაკვირვებისთვის
+                        </p>
+                        <hr class="my-5 border-slate-100">
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>ესწრება საკომიტეტო სესიებს, გახსნისა და დახურვის ოფიციალურ ცერემონიებს.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>სწავლობს პროცედურულ წესებს (Rules of Procedure) დებატებში ჩართვის ვალდებულების გარეშე.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>სრულად მონაწილეობს ვორქშოფებსა და სოციალურ ღონისძიებებში.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-slate-100">
+                        <button type="button" onclick="selectRoleAndScroll('observer')" class="w-full py-3 px-4 rounded-xl bg-slate-100 hover:bg-eu-navy hover:text-white text-eu-navy font-bold text-sm transition-colors cursor-pointer">
+                            რეგისტრაცია დამკვირვებლად
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Faculty Advisor -->
+                <div class="bg-white rounded-3xl p-7 shadow-card border border-slate-200 hover:border-eu-blue/50 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-eu-goldLight text-amber-700 flex items-center justify-center text-2xl mb-5 group-hover:bg-eu-gold group-hover:text-eu-navy transition-colors">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-eu-navy">ფაკულტეტის მრჩეველი (Faculty Advisor)</h3>
+                        <div class="inline-block mt-2 px-3 py-1 rounded-lg bg-amber-50 text-amber-800 text-xs font-bold">
+                            ასაკი: 21+ წელი
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2 font-medium">
+                            სკოლის, უნივერსიტეტის ან კლუბის ხელმძღვანელი / Chaperone
+                        </p>
+                        <hr class="my-5 border-slate-100">
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>ხელმძღვანელობს და კოორდინაციას უწევს დელეგაციას კონფერენციის განმავლობაში.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span>მინიმალური თანაფარდობა: <strong>1 მრჩეველი ყოველ 5 დელეგატზე</strong>.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-eu-blue mt-1"></i>
+                                <span><strong>სავალდებულოა</strong> სკოლის დელეგაციებისთვის, რომელშიც შედიან არასრულწლოვნები.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-4 border-t border-slate-100">
+                        <button type="button" onclick="selectRoleAndScroll('advisor')" class="w-full py-3 px-4 rounded-xl bg-slate-100 hover:bg-eu-navy hover:text-white text-eu-navy font-bold text-sm transition-colors cursor-pointer">
+                            რეგისტრაცია მრჩევლად
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. INTERACTIVE 3-DAY SCHEDULE TABS ==================== -->
+    <section id="schedule" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-eu-light text-eu-blue text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>ოფიციალური პროგრამა</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-eu-navy">
+                    კონფერენციის 3-დღიანი განრიგი
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    18–20 მარტი, 2027 • ბრიუსელი (ადგილობრივი დროით, CET)
+                </p>
+            </div>
+
+            <!-- Interactive Day Switcher Buttons -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-4 p-2 rounded-2xl bg-slate-100 border border-slate-200 mb-8" role="tablist">
+                <button type="button" id="tab-day1" onclick="switchScheduleDay(1)" role="tab" aria-selected="true"
+                    class="schedule-tab active-tab py-3.5 px-3 sm:px-6 rounded-xl font-bold text-xs sm:text-sm transition-all flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-eu-blue text-white shadow-md cursor-pointer">
+                    <span>დღე 1</span>
+                    <span class="opacity-85 font-medium">— 18 მარტი</span>
+                </button>
+                <button type="button" id="tab-day2" onclick="switchScheduleDay(2)" role="tab" aria-selected="false"
+                    class="schedule-tab py-3.5 px-3 sm:px-6 rounded-xl font-bold text-xs sm:text-sm transition-all flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-slate-600 hover:text-eu-navy cursor-pointer">
+                    <span>დღე 2</span>
+                    <span class="opacity-85 font-medium">— 19 მარტი</span>
+                </button>
+                <button type="button" id="tab-day3" onclick="switchScheduleDay(3)" role="tab" aria-selected="false"
+                    class="schedule-tab py-3.5 px-3 sm:px-6 rounded-xl font-bold text-xs sm:text-sm transition-all flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-slate-600 hover:text-eu-navy cursor-pointer">
+                    <span>დღე 3</span>
+                    <span class="opacity-85 font-medium">— 20 მარტი</span>
+                </button>
+            </div>
+
+            <!-- Schedule Timeline Container -->
+            <div id="scheduleContent" class="bg-slate-50 rounded-3xl border border-slate-200/90 p-5 sm:p-8 shadow-card">
+                <!-- Populated dynamically via JS for snappy transitions -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. INTERACTIVE REGISTRATION FORM ==================== -->
+    <section id="register" class="py-16 sm:py-24 bg-gradient-to-b from-slate-100 to-eu-light/50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-eu-blue text-white text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
+                    <i class="fa-solid fa-pen-to-square text-eu-gold"></i>
+                    <span>ონლაინ აპლიკაცია • 2027</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-eu-navy">
+                    FWWMEU Brussels 2027 — რეგისტრაცია
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    აირჩიეთ რეგისტრაციის ტიპი და შეავსეთ მონაცემები. განაცხადის დადასტურებისთანავე მიიღებთ სარეგისტრაციო კოდს და შემდგომ ინსტრუქციებს.
+                </p>
+            </div>
+
+            <!-- Form Card -->
+            <div id="registrationCard" class="bg-white rounded-3xl shadow-diplomatic border border-slate-200/90 overflow-hidden">
+                <!-- Registration Type Switcher Header -->
+                <div class="bg-eu-navy p-5 sm:p-7 text-white">
+                    <label class="block text-xs uppercase tracking-wider text-eu-gold font-bold mb-3">
+                        ნაბიჯი 1: აირჩიეთ რეგისტრაციის ფორმატი
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button type="button" id="btnTypeIndividual" onclick="setRegistrationType('individual')"
+                            class="flex items-center gap-3.5 p-4 rounded-2xl border-2 border-eu-gold bg-white/15 text-left transition-all cursor-pointer">
+                            <div class="w-10 h-10 rounded-xl bg-eu-gold text-eu-navy flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <div class="font-extrabold text-sm sm:text-base text-white">ინდივიდუალური რეგისტრაცია</div>
+                                <div class="text-xs text-blue-200">Individual Delegate / Observer / Advisor</div>
+                            </div>
+                        </button>
+
+                        <button type="button" id="btnTypeDelegation" onclick="setRegistrationType('delegation')"
+                            class="flex items-center gap-3.5 p-4 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white/10 text-left transition-all cursor-pointer">
+                            <div class="w-10 h-10 rounded-xl bg-white/15 text-white flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                            <div>
+                                <div class="font-extrabold text-sm sm:text-base text-white">დელეგაციის რეგისტრაცია</div>
+                                <div class="text-xs text-blue-200">სკოლა / უნივერსიტეტი / კლუბი (მინ. 5 დელეგატი)</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Form Body -->
+                <form id="fwwmeuForm" novalidate class="p-6 sm:p-9 space-y-7">
+                    <!-- Validation Alert Banner (Hidden by default) -->
+                    <div id="formErrorBanner" class="hidden p-4 rounded-2xl bg-red-50 border border-red-200 text-red-800 text-sm flex items-start gap-3">
+                        <i class="fa-solid fa-circle-exclamation text-red-600 mt-0.5 text-base"></i>
+                        <div>
+                            <p class="font-bold">გთხოვთ შეასწოროთ მონიშნული ველები:</p>
+                            <p id="formErrorText" class="text-xs mt-1 text-red-700"></p>
+                        </div>
+                    </div>
+
+                    <!-- DELEGATION-ONLY SECTION -->
+                    <div id="delegationFields" class="hidden p-5 sm:p-6 rounded-2xl bg-eu-light/70 border border-eu-blue/20 space-y-5">
+                        <div class="flex items-center justify-between border-b border-eu-blue/15 pb-3">
+                            <h3 class="font-extrabold text-eu-navy text-base flex items-center gap-2">
+                                <i class="fa-solid fa-school text-eu-blue"></i>
+                                <span>დელეგაციის / სასწავლებლის ინფორმაცია</span>
+                            </h3>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-eu-blue text-white">მინ. 5 დელეგატი</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="delegationName" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    დელეგაციის / სკოლის / უნივერსიტეტის სახელი *
+                                </label>
+                                <input type="text" id="delegationName" placeholder="მაგ: თბილისის ევროპული სკოლა"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+
+                            <div>
+                                <label for="delegateCount" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    დელეგატების რაოდენობა (მინიმუმ 5) *
+                                </label>
+                                <input type="number" id="delegateCount" min="5" max="100" value="5"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                                <p id="advisorRatioHint" class="text-xs text-eu-blue font-semibold mt-1.5">
+                                    რეკომენდებული ფაკულტეტის მრჩეველი: მინიმუმ 1 მრჩეველი (1:5 თანაფარდობა).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="advisorDetails" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                ხელმძღვანელი პირის / Faculty Advisor-ის საკონტაქტო მონაცემები *
+                            </label>
+                            <input type="text" id="advisorDetails" placeholder="სახელი, გვარი, პოზიცია და ტელეფონის ნომერი"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <!-- ROLE & AGE VALIDATION SECTION -->
+                    <div class="space-y-5">
+                        <h3 class="font-extrabold text-eu-navy text-base border-b border-slate-200 pb-2.5 flex items-center gap-2">
+                            <i class="fa-solid fa-id-card text-eu-blue"></i>
+                            <span id="applicantSectionTitle">მონაწილის სტატუსი და პერსონალური მონაცემები</span>
+                        </h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <!-- Role Select -->
+                            <div>
+                                <label for="roleSelect" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    მონაწილეობის როლი *
+                                </label>
+                                <select id="roleSelect" onchange="validateAgeCriteria()"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm font-medium">
+                                    <option value="delegate">დელეგატი (Delegate — 13–26 წ.)</option>
+                                    <option value="observer">დამკვირვებელი (Observer — 13–28 წ.)</option>
+                                    <option value="advisor">ფაკულტეტის მრჩეველი (Faculty Advisor — 21+ წ.)</option>
+                                </select>
+                            </div>
+
+                            <!-- Date of Birth -->
+                            <div>
+                                <label for="dobInput" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    დაბადების თარიღი *
+                                </label>
+                                <input type="date" id="dobInput" onchange="validateAgeCriteria()" max="2014-03-18" min="1950-01-01"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Age Eligibility Feedback Box -->
+                        <div id="ageFeedbackBox" class="hidden p-3.5 rounded-xl text-xs font-semibold flex items-center gap-2.5">
+                            <i id="ageFeedbackIcon" class="fa-solid"></i>
+                            <span id="ageFeedbackText"></span>
+                        </div>
+
+                        <!-- Full Name & Email -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="fullName" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    სახელი და გვარი (ლათინურად, პასპორტის მიხედვით) *
+                                </label>
+                                <input type="text" id="fullName" placeholder="მაგ: Giorgi Beridze"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+
+                            <div>
+                                <label for="emailInput" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    ელექტრონული ფოსტა (Email) *
+                                </label>
+                                <input type="email" id="emailInput" placeholder="name@example.com"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <!-- Phone & Country/City -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="phoneInput" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    ტელეფონის ნომერი (WhatsApp / Viber) *
+                                </label>
+                                <input type="tel" id="phoneInput" placeholder="+995 5XX XX XX XX"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+
+                            <div>
+                                <label for="countryCity" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    ქვეყანა და ქალაქი *
+                                </label>
+                                <input type="text" id="countryCity" value="საქართველო, თბილისი" placeholder="ქვეყანა, ქალაქი"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACADEMIC & MEU EXPERIENCE SECTION -->
+                    <div class="space-y-5">
+                        <h3 class="font-extrabold text-eu-navy text-base border-b border-slate-200 pb-2.5 flex items-center gap-2">
+                            <i class="fa-solid fa-building-columns text-eu-blue"></i>
+                            <span>აკადემიური სტატუსი და MEU / MUN გამოცდილება</span>
+                        </h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="academicLevel" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    აკადემიური საფეხური *
+                                </label>
+                                <select id="academicLevel"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm font-medium">
+                                    <option value="სკოლის მოსწავლე (High School)">სკოლის მოსწავლე (High School)</option>
+                                    <option value="ბაკალავრიატის სტუდენტი (Undergraduate)">ბაკალავრიატის სტუდენტი (Undergraduate)</option>
+                                    <option value="მაგისტრატურა / დოქტორანტურა (Graduate)">მაგისტრატურა / დოქტორანტურა (Graduate)</option>
+                                    <option value="პედაგოგი / აკადემიური პერსონალი (Faculty)">პედაგოგი / აკადემიური პერსონალი (Faculty)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="institutionName" class="block text-sm font-bold text-slate-700 mb-1.5">
+                                    სასწავლო დაწესებულება (სკოლა / უნივერსიტეტი) *
+                                </label>
+                                <input type="text" id="institutionName" placeholder="მაგ: ივანე ჯავახიშვილის სახელობის თსუ"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-eu-blue focus:border-eu-blue outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">
+                                წინა MEU / MUN გამოცდილების დონე (სამდივნოს მიერ კომიტეტის შერჩევისთვის) *
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="experienceLevel" value="დამწყები (0 კონფერენცია)" checked class="peer sr-only">
+                                    <div class="p-3.5 rounded-xl border-2 border-slate-200 peer-checked:border-eu-blue peer-checked:bg-eu-light/60 transition-all">
+                                        <div class="font-bold text-sm text-eu-navy">დამწყები</div>
+                                        <div class="text-xs text-slate-500 mt-0.5">0 კონფერენცია (პირველი გამოცდილება)</div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="experienceLevel" value="საშუალო (1–3 კონფერენცია)" class="peer sr-only">
+                                    <div class="p-3.5 rounded-xl border-2 border-slate-200 peer-checked:border-eu-blue peer-checked:bg-eu-light/60 transition-all">
+                                        <div class="font-bold text-sm text-eu-navy">საშუალო</div>
+                                        <div class="text-xs text-slate-500 mt-0.5">1–3 კონფერენცია</div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="experienceLevel" value="გამოცდილი (4+ კონფერენცია)" class="peer sr-only">
+                                    <div class="p-3.5 rounded-xl border-2 border-slate-200 peer-checked:border-eu-blue peer-checked:bg-eu-light/60 transition-all">
+                                        <div class="font-bold text-sm text-eu-navy">გამოცდილი</div>
+                                        <div class="text-xs text-slate-500 mt-0.5">4+ კონფერენცია</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OPTIONAL ADD-ONS & POLICIES -->
+                    <div class="space-y-4 pt-2">
+                        <h3 class="font-extrabold text-eu-navy text-base border-b border-slate-200 pb-2.5 flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-eu-blue"></i>
+                            <span>დამატებითი სერვისები და წესები</span>
+                        </h3>
+
+                        <!-- NYAD-WCYD Training Add-on -->
+                        <label for="trainingAddon" class="flex items-start gap-3.5 p-4 rounded-2xl border border-amber-300 bg-eu-goldLight/60 hover:bg-eu-goldLight cursor-pointer transition-colors">
+                            <input type="checkbox" id="trainingAddon" class="mt-1 w-5 h-5 rounded text-eu-blue focus:ring-eu-blue cursor-pointer">
+                            <div class="text-sm">
+                                <span class="font-extrabold text-eu-navy block">
+                                    NYAD-WCYD სერტიფიცირებული ტრენინგის დამატება ($49 — 3-საათიანი კურსი საუნივერსიტეტო კრედიტებით)
+                                </span>
+                                <span class="text-xs text-slate-600 mt-1 block">
+                                    ადგილზე ჩატარებული სპეციალიზებული კურსი დიპლომატიასა და საერთაშორისო ურთიერთობებში, ოფიციალური სერტიფიკატით.
+                                </span>
+                            </div>
+                        </label>
+
+                        <!-- Visa Support Letter Checkbox -->
+                        <label for="visaLetter" class="flex items-start gap-3.5 p-4 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100/70 cursor-pointer transition-colors">
+                            <input type="checkbox" id="visaLetter" class="mt-1 w-5 h-5 rounded text-eu-blue focus:ring-eu-blue cursor-pointer">
+                            <div class="text-sm">
+                                <span class="font-bold text-eu-navy block">
+                                    მჭირდება ოფიციალური სავიზო მხარდაჭერის წერილი (VISA Support Letter)
+                                </span>
+                                <span class="text-xs text-slate-500 mt-0.5 block">
+                                    ოფიციალური მოწვევა გაიცემა სარეგისტრაციო საფასურის გადახდის შემდეგ, 5 სამუშაო დღის განმავლობაში (საჭიროების შემთხვევაში).
+                                </span>
+                            </div>
+                        </label>
+
+                        <!-- Terms & 24-Month Deferral Policy Checkbox -->
+                        <label for="termsAgree" class="flex items-start gap-3.5 p-4 rounded-2xl border border-slate-200 bg-white cursor-pointer">
+                            <input type="checkbox" id="termsAgree" class="mt-1 w-5 h-5 rounded text-eu-blue focus:ring-eu-blue cursor-pointer">
+                            <div class="text-xs sm:text-sm text-slate-600">
+                                ვეთანხმები კონფერენციის წესებსა და პირობებს, მათ შორის <strong>24-თვიანი გადავადების პოლიტიკას (24-month Deferral Policy)</strong>, რომელიც საშუალებას იძლევა სარეგისტრაციო შენატანი გამოყენებულ იქნას FWWMUN-ის ნებისმიერ მომდევნო კონფერენციაზე 2 წლის განმავლობაში. *
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 px-6 rounded-2xl bg-eu-blue hover:bg-eu-navy text-white font-extrabold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 cursor-pointer">
+                            <span>რეგისტრაციის დასრულება და კოდის მიღება</span>
+                            <i class="fa-solid fa-paper-plane text-eu-gold"></i>
+                        </button>
+                        <p class="text-center text-xs text-slate-500 mt-3">
+                            <i class="fa-solid fa-shield-halved text-eu-blue mr-1"></i>
+                            თქვენი მონაცემები დაცულია და გამოიყენება მხოლოდ FWWMEU Brussels 2027 სამდივნოს მიერ.
+                        </p>
+                    </div>
+                </form>
+
+                <!-- CONFIRMATION TICKET SUMMARY (Shown upon valid form submission) -->
+                <div id="confirmationScreen" class="hidden p-6 sm:p-10 bg-white">
+                    <div class="text-center max-w-xl mx-auto mb-8">
+                        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mb-2">
+                            განაცხადი წარმატებით დაფიქსირდა
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-eu-navy">
+                            გილოცავთ! თქვენი სარეგისტრაციო ბილეთი მზად არის
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            შეინახეთ თქვენი უნიკალური საცნობარო კოდი (Reference ID). სამდივნო დაგიკავშირდებათ მითითებულ ელფოსტაზე კომიტეტისა და ქვეყნის განაწილების დეტალებით.
+                        </p>
+                    </div>
+
+                    <!-- Diplomatic Pass / Ticket Card -->
+                    <div id="ticketToCopy" class="max-w-2xl mx-auto rounded-3xl border-2 border-eu-blue/30 bg-gradient-to-br from-slate-50 to-eu-light/40 overflow-hidden shadow-diplomatic">
+                        <div class="bg-eu-navy text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-3 h-3 rounded-full bg-eu-gold"></span>
+                                <span class="font-extrabold tracking-wide text-sm sm:text-base">FWWMEU BRUSSELS 2027 • PASS</span>
+                            </div>
+                            <div class="px-3 py-1 rounded-lg bg-eu-gold text-eu-navy font-mono font-extrabold text-xs sm:text-sm" id="ticketRefId">
+                                FWW-BRU-2027-0000
+                            </div>
+                        </div>
+
+                        <div class="p-6 sm:p-7 space-y-4 text-sm">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-slate-200">
+                                <div>
+                                    <span class="text-xs text-slate-500 block">აპლიკანტი / დელეგატი</span>
+                                    <span class="font-extrabold text-eu-navy text-base" id="summaryName">—</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-500 block">მონაწილეობის ტიპი და როლი</span>
+                                    <span class="font-bold text-eu-blue" id="summaryRole">—</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-slate-200">
+                                <div>
+                                    <span class="text-xs text-slate-500 block">სასწავლო დაწესებულება / ქვეყანა</span>
+                                    <span class="font-semibold text-slate-800" id="summaryInstitution">—</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-500 block">საკონტაქტო ელფოსტა</span>
+                                    <span class="font-semibold text-slate-800" id="summaryEmail">—</span>
+                                </div>
+                            </div>
+
+                            <div id="summaryDelegationRow" class="hidden pb-4 border-b border-slate-200">
+                                <span class="text-xs text-slate-500 block">დელეგაციის დეტალები</span>
+                                <span class="font-bold text-eu-navy" id="summaryDelegation">—</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs text-slate-500 block">გამოცდილების დონე</span>
+                                    <span class="font-semibold text-slate-800" id="summaryExp">—</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-500 block">დამატებითი სერვისები</span>
+                                    <span class="font-semibold text-slate-800" id="summaryAddons">—</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-3 flex items-center justify-between text-xs text-slate-500 border-t border-dashed border-slate-300">
+                                <span>თარიღი: 18–20 მარტი, 2027 • ბრიუსელი</span>
+                                <span>სტატუსი: წინასწარ დადასტურებული</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ticket Action Buttons -->
+                    <div class="max-w-2xl mx-auto mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                        <button type="button" onclick="copyTicketSummary()" class="px-5 py-3 rounded-xl bg-eu-navy hover:bg-eu-blue text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                            <i class="fa-regular fa-copy text-eu-gold"></i>
+                            <span id="copyBtnLabel">ბილეთის მონაცემების კოპირება</span>
+                        </button>
+                        <button type="button" onclick="downloadTicketTxt()" class="px-5 py-3 rounded-xl bg-eu-gold hover:bg-eu-goldHover text-eu-navy font-extrabold text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                            <i class="fa-solid fa-download"></i>
+                            <span>ჩამოტვირთვა (.TXT)</span>
+                        </button>
+                        <button type="button" onclick="resetRegistrationForm()" class="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>ახალი დელეგატის დამატება</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. FAQ & IMPORTANT POLICIES ACCORDION ==================== -->
+    <section id="faq" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-eu-light text-eu-blue text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>მნიშვნელოვანი პირობები</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-eu-navy">
+                    ხშირად დასმული კითხვები და პოლიტიკა
+                </h2>
+            </div>
+
+            <div class="space-y-4" id="faqAccordion">
+                <!-- FAQ 1 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+                    <button type="button" onclick="toggleFaq(1)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-eu-navy text-sm sm:text-base hover:bg-slate-100/70 transition-colors cursor-pointer">
+                        <span>როგორ ხდება ოფიციალური სავიზო მხარდაჭერის წერილის (VISA Support Letter) მიღება?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-eu-blue transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-body-1" class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        სავიზო მხარდაჭერის ოფიციალური წერილი გაიცემა მას შემდეგ, რაც მონაწილე დაასრულებს რეგისტრაციას და დაფარავს სარეგისტრაციო საფასურს. მოთხოვნის დაფიქსირებიდან <strong>5 სამუშაო დღის განმავლობაში</strong> სამდივნო გიგზავნით ოფიციალურ მოწვევის წერილს საელჩოში წარსადგენად.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+                    <button type="button" onclick="toggleFaq(2)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-eu-navy text-sm sm:text-base hover:bg-slate-100/70 transition-colors cursor-pointer">
+                        <span>რას გულისხმობს 24-თვიანი გადავადების პოლიტიკა (Deferral Policy)?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-eu-blue transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-body-2" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        თუ გაუთვალისწინებელი გარემოებების (მათ შორის სავიზო შეფერხების ან აკადემიური მიზეზების) გამო ვერ შეძლებთ ბრიუსელის კონფერენციაზე დასწრებას, თქვენი გადახდილი სარეგისტრაციო საფასური არ იკარგება — ის ინახება <strong>24 თვის განმავლობაში</strong> და შეგიძლიათ გამოიყენოთ FWWMUN-ის ნებისმიერ მომდევნო საერთაშორისო კონფერენციაზე (ნიუ-იორკი, რომი, ბრიუსელი და სხვ.).
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+                    <button type="button" onclick="toggleFaq(3)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-eu-navy text-sm sm:text-base hover:bg-slate-100/70 transition-colors cursor-pointer">
+                        <span>სად ტარდება სესიები და როგორ ხდება განთავსება ბრიუსელში?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-eu-blue transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-body-3" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        გახსნის ცერემონია და ძირითადი დიპლომატიური სესიები იმართება ბრიუსელის ევროპულ კვარტალში (მათ შორის <strong>Committee of the Regions — CoR</strong>-ის შენობაში და პარტნიორ საკონფერენციო დარბაზებში). რეგისტრირებულ დელეგატებს ეგზავნებათ რეკომენდებული სასტუმროების სია სპეციალური კორპორატიული ფასდაკლებით ევროპარლამენტის მიმდებარე ტერიტორიაზე.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+                    <button type="button" onclick="toggleFaq(4)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-eu-navy text-sm sm:text-base hover:bg-slate-100/70 transition-colors cursor-pointer">
+                        <span>მჭირდება თუ არა წინასწარი გამოცდილება Model EU / Model UN-ში?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-eu-blue transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-body-4" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        არა! კონფერენცია ღიაა როგორც დამწყები, ისე გამოცდილი დელეგატებისთვის. პირველ დღეს ტარდება პროცედურული წესების (Rules of Procedure) სპეციალური ტრენინგი, ხოლო სამდივნო კომიტეტებსა და ქვეყნებს ანაწილებს თქვენ მიერ ფორმაში მითითებული გამოცდილების დონის მიხედვით.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 8. FOOTER ==================== -->
+    <footer class="bg-eu-navy text-blue-100 pt-14 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-white/15">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-eu-blue flex items-center justify-center text-eu-gold font-extrabold">
+                            EU
+                        </div>
+                        <span class="font-extrabold text-xl text-white">FWWMEU Brussels 2027</span>
+                    </div>
+                    <p class="text-sm text-blue-200/90 leading-relaxed">
+                        Future We Want Model European Union — საერთაშორისო ახალგაზრდული დიპლომატიური კონფერენცია ბრიუსელში. ააგე შენი დიპლომატიური კარიერა ევროპის გულში.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-2.5 text-sm">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">სწრაფი ბმულები</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-eu-gold transition-colors">კონფერენციის შესახებ</a></li>
+                        <li><a href="#roles" class="hover:text-eu-gold transition-colors">როლები და კრიტერიუმები</a></li>
+                        <li><a href="#schedule" class="hover:text-eu-gold transition-colors">3-დღიანი განრიგი</a></li>
+                        <li><a href="#register" class="hover:text-eu-gold transition-colors">ონლაინ რეგისტრაცია</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3 text-sm">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">საკონტაქტო ინფორმაცია</h4>
+                    <p class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-envelope text-eu-gold"></i>
+                        <a href="mailto:registrations@fwwmun.org" class="hover:text-eu-gold underline">registrations@fwwmun.org</a>
+                    </p>
+                    <p class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-location-dot text-eu-gold"></i>
+                        <span>Brussels, Belgium (18–20 March 2027)</span>
+                    </p>
+                    <p class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-globe text-eu-gold"></i>
+                        <a href="https://www.fwwmun-nyc.org/meu-brussels" target="_blank" rel="noopener noreferrer" class="hover:text-eu-gold underline">
+                            fwwmun-nyc.org/meu-brussels (ოფიციალური წყარო)
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-300">
+                <p>© 2027 Future We Want Model European Union (FWWMEU Brussels). ყველა უფლება დაცულია.</p>
+                <p>შექმნილია ქართველი და საერთაშორისო დელეგატების რეგისტრაციის მხარდასაჭერად.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE JAVASCRIPT LOGIC ==================== -->
+    <script>
+        // 1. Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 2. Interactive 3-Day Schedule Data & Renderer
+        const scheduleData = {
+            1: {
+                dateLabel: "ხუთშაბათი, 18 მარტი, 2027 — გახსნის დღე და მომზადება",
+                badge: "დღე 1",
+                items: [
+                    { time: "07:45 – 08:45", title: "ადრეული რეგისტრაცია (Early Registration)", desc: "დელეგატების ბეიჯებისა და საკონფერენციო პაკეტების გაცემა.", icon: "fa-id-badge", highlight: false },
+                    { time: "09:00 – 10:00", title: "პროცედურული წესები (Rules of Procedure)", desc: "ინტენსიური სესია ევროპარლამენტისა და ევროკავშირის საბჭოს დებატების წესებზე.", icon: "fa-book-open", highlight: false },
+                    { time: "10:00 – 12:00", title: "გვიანი რეგისტრაცია (Late Registration)", desc: "ჩამოსული დელეგაციების რეგისტრაცია და აკრედიტაცია.", icon: "fa-clipboard-check", highlight: false },
+                    { time: "12:00 – 14:00", title: "შესვენება (Lunch Break)", desc: "თავისუფალი დრო სადილისა და არაფორმალური გაცნობისთვის.", icon: "fa-utensils", highlight: false },
+                    { time: "14:00 – 15:00", title: "უსაფრთხოების კონტროლი (CoR Security Check)", desc: "შესვლა და უსაფრთხოების შემოწმება ევროპის რეგიონთა კომიტეტის (Committee of the Regions) შენობაში.", icon: "fa-shield-halved", highlight: true },
+                    { time: "15:00 – 17:00", title: "გახსნის ცერემონია (Opening Ceremony)", desc: "კონფერენციის ოფიციალური გახსნა ევროკავშირის მაღალი რანგის სტუმრების მონაწილეობით.", icon: "fa-landmark", highlight: true }
+                ]
+            },
+            2: {
+                dateLabel: "პარასკევი, 19 მარტი, 2027 — საკომიტეტო სესიები და დიპლომატია",
+                badge: "დღე 2",
+                items: [
+                    { time: "10:00 – 13:00", title: "ევროპარლამენტისა და ევროკავშირის საბჭოს საკომიტეტო სესია I", desc: "დღის წესრიგის დამტკიცება, ქვეყნების პოზიციების წარდგენა და ოფიციალური დებატების დაწყება.", icon: "fa-comments", highlight: true },
+                    { time: "13:00 – 14:00", title: "შესვენება (Lunch Break)", desc: "შესვენება სადილისთვის.", icon: "fa-utensils", highlight: false },
+                    { time: "14:00 – 18:00", title: "საკომიტეტო სესია II", desc: "კოალიციების ფორმირება, არაფორმალური კონსულტაციები (Unmoderated Caucus) და სამუშაო დოკუმენტების შედგენა.", icon: "fa-file-contract", highlight: true },
+                    { time: "18:30 – 19:30", title: "FWW Leaders Run", desc: "ტრადიციული სიმბოლური გარბენი ბრიუსელში მშვიდობის, სოლიდარობისა და ევროპული ერთიანობის მხარდასაჭერად.", icon: "fa-person-running", highlight: false }
+                ]
+            },
+            3: {
+                dateLabel: "შაბათი, 20 მარტი, 2027 — რეზოლუციები და დახურვის ცერემონია",
+                badge: "დღე 3",
+                items: [
+                    { time: "10:00 – 13:00", title: "საკომიტეტო სესია III", desc: "რეზოლუციის პროექტების განხილვა, შესწორებების შეტანა და დებატები.", icon: "fa-scale-balanced", highlight: true },
+                    { time: "13:00 – 14:00", title: "შესვენება (Lunch Break)", desc: "შესვენება სადილისთვის.", icon: "fa-utensils", highlight: false },
+                    { time: "14:00 – 15:00", title: "საკომიტეტო სესია IV", desc: "საბოლოო კენჭისყრა რეზოლუციებზე და კომიტეტის მუშაობის შეჯამება.", icon: "fa-check-to-slot", highlight: true },
+                    { time: "15:30 – 16:30", title: "დახურვის ცერემონია (Closing Ceremony)", desc: "საუკეთესო დელეგატების დაჯილდოება, სერტიფიკატების გადაცემა და კონფერენციის შეჯამება.", icon: "fa-trophy", highlight: true }
+                ]
+            }
+        };
+
+        function switchScheduleDay(dayNum) {
+            // Update tab button styles
+            [1, 2, 3].forEach(d => {
+                const btn = document.getElementById(`tab-day${d}`);
+                if (d === dayNum) {
+                    btn.classList.add('bg-eu-blue', 'text-white', 'shadow-md');
+                    btn.classList.remove('text-slate-600', 'hover:text-eu-navy');
+                    btn.setAttribute('aria-selected', 'true');
+                } else {
+                    btn.classList.remove('bg-eu-blue', 'text-white', 'shadow-md');
+                    btn.classList.add('text-slate-600', 'hover:text-eu-navy');
+                    btn.setAttribute('aria-selected', 'false');
+                }
+            });
+
+            // Render day timeline
+            const data = scheduleData[dayNum];
+            const container = document.getElementById('scheduleContent');
+            let html = `
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-200">
+                    <div class="font-extrabold text-eu-navy text-base sm:text-lg">${data.dateLabel}</div>
+                    <span class="px-3 py-1 rounded-full bg-eu-gold text-eu-navy text-xs font-extrabold">${data.badge}</span>
+                </div>
+                <div class="space-y-4">
+            `;
+
+            data.items.forEach(item => {
+                const cardStyle = item.highlight
+                    ? 'bg-white border-l-4 border-l-eu-blue border-y border-r border-slate-200 shadow-sm'
+                    : 'bg-white/70 border border-slate-200/80';
+                const badgeStyle = item.highlight
+                    ? 'bg-eu-blue text-white'
+                    : 'bg-slate-100 text-slate-700';
+
+                html += `
+                    <div class="p-4 sm:p-5 rounded-2xl ${cardStyle} flex flex-col sm:flex-row sm:items-center gap-4 transition-all hover:shadow-md">
+                        <div class="shrink-0">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold ${badgeStyle}">
+                                <i class="fa-regular fa-clock"></i>
+                                ${item.time}
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-extrabold text-eu-navy text-sm sm:text-base flex items-center gap-2">
+                                <i class="fa-solid ${item.icon} text-eu-blue text-xs"></i>
+                                <span>${item.title}</span>
+                            </h4>
+                            <p class="text-xs sm:text-sm text-slate-600 mt-1">${item.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        // Initialize Day 1 Schedule on page load
+        switchScheduleDay(1);
+
+        // 3. Registration Form Type Switcher & Helper Functions
+        let currentRegType = 'individual';
+
+        function setRegistrationType(type) {
+            currentRegType = type;
+            const btnInd = document.getElementById('btnTypeIndividual');
+            const btnDel = document.getElementById('btnTypeDelegation');
+            const delFields = document.getElementById('delegationFields');
+            const appTitle = document.getElementById('applicantSectionTitle');
+
+            if (type === 'individual') {
+                btnInd.className = "flex items-center gap-3.5 p-4 rounded-2xl border-2 border-eu-gold bg-white/15 text-left transition-all cursor-pointer";
+                btnInd.querySelector('div').className = "w-10 h-10 rounded-xl bg-eu-gold text-eu-navy flex items-center justify-center text-lg shrink-0";
+                
+                btnDel.className = "flex items-center gap-3.5 p-4 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white/10 text-left transition-all cursor-pointer";
+                btnDel.querySelector('div').className = "w-10 h-10 rounded-xl bg-white/15 text-white flex items-center justify-center text-lg shrink-0";
+
+                delFields.classList.add('hidden');
+                appTitle.textContent = "მონაწილის სტატუსი და პერსონალური მონაცემები";
+            } else {
+                btnDel.className = "flex items-center gap-3.5 p-4 rounded-2xl border-2 border-eu-gold bg-white/15 text-left transition-all cursor-pointer";
+                btnDel.querySelector('div').className = "w-10 h-10 rounded-xl bg-eu-gold text-eu-navy flex items-center justify-center text-lg shrink-0";
+
+                btnInd.className = "flex items-center gap-3.5 p-4 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white/10 text-left transition-all cursor-pointer";
+                btnInd.querySelector('div').className = "w-10 h-10 rounded-xl bg-white/15 text-white flex items-center justify-center text-lg shrink-0";
+
+                delFields.classList.remove('hidden');
+                appTitle.textContent = "დელეგაციის მთავარი წარმომადგენლის მონაცემები";
+            }
+        }
+
+        // Dynamic advisor ratio hint on delegate count input
+        document.getElementById('delegateCount').addEventListener('input', function () {
+            const count = parseInt(this.value, 10) || 5;
+            const requiredAdvisors = Math.max(1, Math.ceil(count / 5));
+            document.getElementById('advisorRatioHint').textContent =
+                `რეკომენდებული ფაკულტეტის მრჩეველი: მინიმუმ ${requiredAdvisors} მრჩეველი (${count} დელეგატზე, 1:5 თანაფარდობა).`;
+        });
+
+        // Quick scroll helpers from Role cards & Training card
+        function selectRoleAndScroll(roleVal) {
+            document.getElementById('roleSelect').value = roleVal;
+            validateAgeCriteria();
+            document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectTrainingAndScroll() {
+            document.getElementById('trainingAddon').checked = true;
+            document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 4. Dynamic Age Validation against Conference Date (March 18, 2027)
+        function calculateConferenceAge(dobString) {
+            if (!dobString) return null;
+            const dob = new Date(dobString);
+            const confDate = new Date('2027-03-18');
+            let age = confDate.getFullYear() - dob.getFullYear();
+            const m = confDate.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && confDate.getDate() < dob.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        function validateAgeCriteria() {
+            const role = document.getElementById('roleSelect').value;
+            const dobVal = document.getElementById('dobInput').value;
+            const box = document.getElementById('ageFeedbackBox');
+            const icon = document.getElementById('ageFeedbackIcon');
+            const text = document.getElementById('ageFeedbackText');
+
+            if (!dobVal) {
+                box.classList.add('hidden');
+                return { valid: false, message: 'გთხოვთ მიუთითოთ დაბადების თარიღი.' };
+            }
+
+            const age = calculateConferenceAge(dobVal);
+            box.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200', 'bg-amber-50', 'text-amber-800', 'border-amber-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+
+            if (role === 'delegate') {
+                if (age >= 13 && age <= 26) {
+                    const subCat = age <= 19 ? 'High School კატეგორია (13–19)' : 'University კატეგორია (17–26)';
+                    box.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    icon.className = 'fa-solid fa-circle-check text-emerald-600';
+                    text.textContent = `კონფერენციის თარიღისთვის (18 მარტი, 2027) თქვენი ასაკია ${age} წელი — სრულად აკმაყოფილებს დელეგატის კრიტერიუმს (${subCat}).`;
+                    return { valid: true };
+                } else {
+                    box.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    icon.className = 'fa-solid fa-triangle-exclamation text-red-600';
+                    text.textContent = `კონფერენციის თარიღისთვის თქვენი ასაკია ${age} წელი. დელეგატის როლი განკუთვნილია 13–26 წლის მონაწილეებისთვის.`;
+                    return { valid: false, message: 'ასაკი არ შეესაბამება დელეგატის კრიტერიუმს (13–26 წელი).' };
+                }
+            } else if (role === 'observer') {
+                if (age >= 13 && age <= 28) {
+                    box.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    icon.className = 'fa-solid fa-circle-check text-emerald-600';
+                    text.textContent = `კონფერენციის თარიღისთვის თქვენი ასაკია ${age} წელი — აკმაყოფილებს დამკვირვებლის (Observer) კრიტერიუმს (13–28 წელი).`;
+                    return { valid: true };
+                } else {
+                    box.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    icon.className = 'fa-solid fa-triangle-exclamation text-red-600';
+                    text.textContent = `კონფერენციის თარიღისთვის თქვენი ასაკია ${age} წელი. დამკვირვებლის როლი განკუთვნილია 13–28 წლის მონაწილეებისთვის.`;
+                    return { valid: false, message: 'ასაკი არ შეესაბამება დამკვირვებლის კრიტერიუმს (13–28 წელი).' };
+                }
+            } else if (role === 'advisor') {
+                if (age >= 21) {
+                    box.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    icon.className = 'fa-solid fa-circle-check text-emerald-600';
+                    text.textContent = `კონფერენციის თარიღისთვის თქვენი ასაკია ${age} წელი — აკმაყოფილებს ფაკულტეტის მრჩევლის (21+) კრიტერიუმს.`;
+                    return { valid: true };
+                } else {
+                    box.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    icon.className = 'fa-solid fa-triangle-exclamation text-red-600';
+                    text.textContent = `კონფერენციის თარიღისთვის თქვენი ასაკია ${age} წელი. ფაკულტეტის მრჩევლის მინიმალური ასაკია 21 წელი.`;
+                    return { valid: false, message: 'ფაკულტეტის მრჩეველი უნდა იყოს მინიმუმ 21 წლის.' };
+                }
+            }
+            return { valid: true };
+        }
+
+        // 5. Form Submission & Confirmation Pass Generation
+        let lastGeneratedTicketText = '';
+
+        document.getElementById('fwwmeuForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const errorBanner = document.getElementById('formErrorBanner');
+            const errorText = document.getElementById('formErrorText');
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('emailInput').value.trim();
+            const phone = document.getElementById('phoneInput').value.trim();
+            const countryCity = document.getElementById('countryCity').value.trim();
+            const institution = document.getElementById('institutionName').value.trim();
+            const role = document.getElementById('roleSelect').value;
+            const academicLevel = document.getElementById('academicLevel').value;
+            const expLevel = document.querySelector('input[name="experienceLevel"]:checked').value;
+            const hasTraining = document.getElementById('trainingAddon').checked;
+            const needsVisa = document.getElementById('visaLetter').checked;
+            const termsAgree = document.getElementById('termsAgree').checked;
+
+            const errors = [];
+
+            if (currentRegType === 'delegation') {
+                const delName = document.getElementById('delegationName').value.trim();
+                const delCount = parseInt(document.getElementById('delegateCount').value, 10);
+                const advDetails = document.getElementById('advisorDetails').value.trim();
+                if (!delName) errors.push('მიუთითეთ დელეგაციის / სასწავლებლის სახელი.');
+                if (!delCount || delCount < 5) errors.push('დელეგაციაში უნდა იყოს მინიმუმ 5 დელეგატი.');
+                if (!advDetails) errors.push('მიუთითეთ ფაკულტეტის მრჩევლის საკონტაქტო მონაცემები.');
+            }
+
+            if (!fullName) errors.push('შეიყვანეთ სახელი და გვარი.');
+            if (!email || !email.includes('@')) errors.push('შეიყვანეთ ვალიდური ელფოსტა.');
+            if (!phone) errors.push('შეიყვანეთ ტელეფონის ნომერი.');
+            if (!countryCity) errors.push('მიუთითეთ ქვეყანა და ქალაქი.');
+            if (!institution) errors.push('მიუთითეთ სასწავლო დაწესებულება.');
+
+            const ageCheck = validateAgeCriteria();
+            if (!ageCheck.valid) errors.push(ageCheck.message);
+
+            if (!termsAgree) errors.push('გთხოვთ დაეთანხმოთ კონფერენციის წესებსა და 24-თვიანი გადავადების პოლიტიკას.');
+
+            if (errors.length > 0) {
+                errorText.textContent = errors.join(' ');
+                errorBanner.classList.remove('hidden');
+                errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            errorBanner.classList.add('hidden');
+
+            // Generate Reference ID
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const refId = `FWW-BRU-2027-${randomNum}`;
+
+            const roleLabels = {
+                delegate: 'დელეგატი (Delegate)',
+                observer: 'დამკვირვებელი (Observer)',
+                advisor: 'ფაკულტეტის მრჩეველი (Faculty Advisor)'
+            };
+            const typeLabel = currentRegType === 'individual' ? 'ინდივიდუალური' : 'დელეგაცია';
+
+            const addonsList = [];
+            if (hasTraining) addonsList.push('NYAD-WCYD სერტიფიცირებული ტრენინგი ($49)');
+            if (needsVisa) addonsList.push('VISA Support Letter მოთხოვნილია');
+            const addonsStr = addonsList.length > 0 ? addonsList.join(' • ') : 'სტანდარტული პაკეტი';
+
+            // Populate Ticket Summary
+            document.getElementById('ticketRefId').textContent = refId;
+            document.getElementById('summaryName').textContent = fullName;
+            document.getElementById('summaryRole').textContent = `${typeLabel} — ${roleLabels[role]}`;
+            document.getElementById('summaryInstitution').textContent = `${institution} (${academicLevel}) • ${countryCity}`;
+            document.getElementById('summaryEmail').textContent = `${email} | ${phone}`;
+            document.getElementById('summaryExp').textContent = expLevel;
+            document.getElementById('summaryAddons').textContent = addonsStr;
+
+            const delSummaryRow = document.getElementById('summaryDelegationRow');
+            let delTextForExport = '';
+            if (currentRegType === 'delegation') {
+                const delName = document.getElementById('delegationName').value.trim();
+                const delCount = document.getElementById('delegateCount').value;
+                const advDetails = document.getElementById('advisorDetails').value.trim();
+                const delInfo = `${delName} (${delCount} დელეგატი) — მრჩეველი: ${advDetails}`;
+                document.getElementById('summaryDelegation').textContent = delInfo;
+                delSummaryRow.classList.remove('hidden');
+                delTextForExport = `დელეგაცია: ${delInfo}\n`;
+            } else {
+                delSummaryRow.classList.add('hidden');
+            }
+
+            lastGeneratedTicketText =
+`====================================================
+FWWMEU BRUSSELS 2027 — სარეგისტრაციო დადასტურება
+თარიღი: 18–20 მარტი, 2027 | ბრიუსელი, ბელგია
+====================================================
+საცნობარო კოდი (Reference ID): ${refId}
+აპლიკანტი: ${fullName}
+სტატუსი: ${typeLabel} — ${roleLabels[role]}
+${delTextForExport}სასწავლებელი: ${institution} (${academicLevel})
+ქვეყანა/ქალაქი: ${countryCity}
+ელფოსტა: ${email}
+ტელეფონი: ${phone}
+გამოცდილება: ${expLevel}
+დამატებითი სერვისები: ${addonsStr}
+პოლიტიკა: 24-თვიანი გადავადების გარანტია აქტიურია
+====================================================`;
+
+            // Switch view to Confirmation Ticket
+            document.getElementById('fwwmeuForm').classList.add('hidden');
+            document.getElementById('confirmationScreen').classList.remove('hidden');
+            document.getElementById('registrationCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        function copyTicketSummary() {
+            const tempArea = document.createElement('textarea');
+            tempArea.value = lastGeneratedTicketText;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+
+            const label = document.getElementById('copyBtnLabel');
+            const original = label.textContent;
+            label.textContent = 'დაკოპირებულია!';
+            setTimeout(() => { label.textContent = original; }, 2500);
+        }
+
+        function downloadTicketTxt() {
+            const blob = new Blob([lastGeneratedTicketText], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            const refId = document.getElementById('ticketRefId').textContent;
+            a.href = url;
+            a.download = `${refId}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function resetRegistrationForm() {
+            document.getElementById('fwwmeuForm').reset();
+            document.getElementById('ageFeedbackBox').classList.add('hidden');
+            document.getElementById('confirmationScreen').classList.add('hidden');
+            document.getElementById('fwwmeuForm').classList.remove('hidden');
+            document.getElementById('registrationCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // 6. FAQ Accordion Toggle
+        function toggleFaq(index) {
+            const body = document.getElementById(`faq-body-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            const isHidden = body.classList.contains('hidden');
+
+            if (isHidden) {
+                body.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                body.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
